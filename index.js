@@ -3,6 +3,7 @@ setTimeout(function() {
   loadingScreen.style.display = 'none';
 }, 4000);
 
+      
 
 let slideIndex = 1;
 showSlides(slideIndex);
