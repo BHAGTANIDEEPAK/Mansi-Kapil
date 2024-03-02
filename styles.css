@@ -211,7 +211,7 @@ body {
     .person-card{
       display: flex;
       align-items: center;
-      margin-left: 12.5%;
+      margin-left: 10%;
 
     }
   }
