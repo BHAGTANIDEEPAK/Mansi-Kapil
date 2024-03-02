@@ -1,3 +1,11 @@
+      // Wait for all images to be loaded
+      window.addEventListener('load', function() {
+        // Hide the loading screen
+        document.getElementById('loadingScreen').style.display = 'none';
+        // Show the content
+        document.querySelector('.container').style.display = 'block';
+      },5000);
+
 let slideIndex = 1;
 showSlides(slideIndex);
 
@@ -48,3 +56,4 @@ function typeWriter() {
 
 // Start the typing effect when the page loads
 window.onload = typeWriter;
+
