@@ -28,6 +28,6 @@ If you'd like to contribute to Mansi & Kapil's Journey, feel free to fork this r
 
 
 ## 🔗 Links
-[Visit the Website](bit.ly/mansikapil)
+[Visit the Website](https://bhagtanideepak.github.io/Mansi-Kapil/)
 
 
