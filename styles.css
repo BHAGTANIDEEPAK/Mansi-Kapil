@@ -72,6 +72,7 @@ body {
   background-position: center;
   height: 300px; /* Adjust height as needed */
   margin-bottom: 20px;
+  
 }
 
 .card-body {
@@ -90,15 +91,25 @@ body {
 .card-title {
   font-size: 1.5rem;
   font-weight: bold;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
+  padding: 15px; /* Add padding */
 }
 
 .card-text {
   font-size: 1.2rem;
+  
 }
 
 .card-details {
   display: none; /* Initially hide the details */
   transition: all 0.3s ease-in-out; /* Add transition */
+  
+  
+
 }
 
 .card:hover {
@@ -168,7 +179,7 @@ body {
   
   
   .boy-card {
-    background-image: url('images/IMG_0762.jpg'); /* Replace 'kapil.jpg' with the actual image path */
+    background-image: url('images/Kapil.png'); /* Replace 'kapil.jpg' with the actual image path */
     
         background-size: cover;
         background-position: center;
@@ -180,7 +191,7 @@ body {
   }
   
   .girl-card {
-    background-image: url('images/IMG_0806.jpg'); /* Replace 'mansi.jpg' with the actual image path */
+    background-image: url('images/masni.png'); /* Replace 'mansi.jpg' with the actual image path */
     background-size: cover;
         background-position: center;
         height: 400px; /* Increase height for a more vertical layout */
@@ -276,3 +287,25 @@ p {
 
       /* Hide content until loaded */
       
+
+      .upcoming-section {
+  text-align: center; /* Center-align the content */
+  margin-top: 50px; /* Add top margin for separation from previous section */
+}
+
+.upcoming-section h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.upcoming-section ul {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0;
+}
+
+.upcoming-section li {
+  font-family: "Merriweather", serif;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
