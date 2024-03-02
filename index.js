@@ -3,6 +3,29 @@ setTimeout(function() {
   loadingScreen.style.display = 'none';
 }, 4000);
 
+  // Welcome note typing effect
+  const welcomeText1 = " Welcome to Mansi & Kapil's ";
+  const welcomeText2 = "Special Journey";
+  const typingTextElement = document.getElementById('typing-text');
+  let index = 0;
+
+  function typeWelcomeText() {
+    if (index < welcomeText1.length) {
+      typingTextElement.innerHTML += welcomeText1[index];
+    } else if (index === welcomeText1.length) {
+      typingTextElement.innerHTML += "<br>"; // Add line break after Kapil's
+    } else if (index >= welcomeText1.length + welcomeText2.length + 1) {
+      index = 0; // Reset index to make the effect infinite
+      typingTextElement.innerHTML = ""; // Clear existing text
+    } else {
+      typingTextElement.innerHTML += welcomeText2[index - welcomeText1.length - 1]; // Adjust index
+    }
+
+    index++;
+    setTimeout(typeWelcomeText, 300); // Adjust typing speed as needed
+  }
+
+  typeWelcomeText();
       
 
 let slideIndex = 1;
@@ -36,23 +59,5 @@ const interval = setInterval(function () {
   plusSlides(1);
 }, 3000); // Change 3000 to adjust the interval (in milliseconds)
 
-const welcomeText = "Welcome to Mansi & Kapil's Special Journey Website!";
-const typingElement = document.getElementById("typing-text");
-let index = 0;
 
-function typeWriter() {
-  if (index < welcomeText.length) {
-    typingElement.innerHTML += welcomeText.charAt(index);
-    index++;
-    setTimeout(typeWriter, 300); // Adjust typing speed here (milliseconds)
-  } else {
-    // Text typed completely, reset index to create the typing effect again
-    index = 0;
-    typingElement.innerHTML = "";
-    setTimeout(typeWriter, 0); // Wait for 1 second before starting again
-  }
-}
-
-// Start the typing effect when the page loads
-window.onload = typeWriter;
 
