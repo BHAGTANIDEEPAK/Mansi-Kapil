@@ -1,10 +1,8 @@
-      // Wait for all images to be loaded
-      window.addEventListener('load', function() {
-        // Hide the loading screen
-        document.getElementById('loadingScreen').style.display = 'none';
-        // Show the content
-        document.querySelector('.container').style.display = 'block';
-      },5000);
+setTimeout(function() {
+  var loadingScreen = document.getElementById('loadingScreen');
+  loadingScreen.style.display = 'none';
+}, 4000);
+
 
 let slideIndex = 1;
 showSlides(slideIndex);
