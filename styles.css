@@ -306,6 +306,7 @@ p {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9999;
 }
 
 /* Modal Content */
@@ -324,6 +325,10 @@ p {
   float: right;
   font-size: 28px;
   font-weight: bold;
+}
+.birthday-popup {
+  /* Other styles for the popup */
+  z-index: 100; /* Ensure the popup appears on top of other elements */
 }
 
 .close:hover,
@@ -410,6 +415,63 @@ p {
 }
 
 /* Optional: Add hover effects for the buttons */
-.introjs-nextbutton:hover, .introjs-prevbutton:hover, .introjs-skipbutton:hover {
+.introjs-nextbutton:hover,
+.introjs-prevbutton:hover,
+.introjs-skipbutton:hover {
   opacity: 0.8;
+}
+.intro-elements {
+  /* Other styles for the intro elements */
+  z-index: 50; /* Ensure the intro elements stay behind the popup */
+}
+
+/* Custom styles for the popup */
+.popup {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.popup h2 {
+  color: #333333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.popup p {
+  color: #666666;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.popup button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.popup button:hover {
+  background-color: #0056b3;
+}
+
+.popup .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #999999;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.popup .close:hover {
+  color: #777777;
 }
