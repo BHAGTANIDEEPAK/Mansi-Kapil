@@ -4,12 +4,22 @@ setTimeout(function () {
   loadingScreen.style.display = "none";
 
   // Start the website tour
+
   startTour();
 }, 4000);
 
 // Function to start the website tour
 function startTour() {
-  introJs().start();
+  introJs()
+    .oncomplete(function () {
+      // Call the function to check for birthdays after the intro tour is completed
+      checkBirthday();
+    })
+    .onexit(function () {
+      // Call the function to check for birthdays when the intro tour is exited
+      checkBirthday();
+    })
+    .start();
 }
 
 // Function to hide the loading screen after 4 seconds
@@ -33,6 +43,39 @@ function expandNavbar() {
       navbarToggler.click();
     }
   }
+}
+
+// Function to detect when user reaches the end of the website
+// Function to detect when the user has reached the bottom of the page
+// Function to detect when the user has reached the bottom of the page
+window.addEventListener("scroll", function () {
+  var scrollPosition = window.scrollY;
+  var windowHeight = window.innerHeight;
+  var documentHeight = document.documentElement.scrollHeight;
+
+  // Check if the user has scrolled to the bottom of the page
+  if (scrollPosition + windowHeight >= documentHeight - 100) {
+    displayEndOfWebsiteModal();
+  }
+});
+
+// Function to display the end of website modal
+function displayEndOfWebsiteModal() {
+  var endOfWebsiteModal = document.getElementById("endOfWebsiteModal");
+  endOfWebsiteModal.style.display = "block";
+
+  // Close the modal when the user clicks on the close button
+  var closeModal = document.querySelector("#endOfWebsiteModal .close");
+  closeModal.onclick = function () {
+    endOfWebsiteModal.style.display = "none";
+  };
+
+  // Close the modal when the user clicks anywhere outside of it
+  window.onclick = function (event) {
+    if (event.target == endOfWebsiteModal) {
+      endOfWebsiteModal.style.display = "none";
+    }
+  };
 }
 
 // Welcome note typing effect
@@ -62,7 +105,7 @@ typeWelcomeText();
 
 // Function to trigger the confetti effect
 function triggerConfetti() {
-  var duration = 20 * 1000; // Duration of the confetti effect (in milliseconds)
+  var duration = 25 * 1000; // Duration of the confetti effect (in milliseconds)
   var animationEnd = Date.now() + duration;
   var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
 
@@ -142,7 +185,6 @@ function displayPopup(message) {
 }
 
 // Call the function to check for birthdays
-checkBirthday();
 
 let slideIndex = 1;
 showSlides(slideIndex);
