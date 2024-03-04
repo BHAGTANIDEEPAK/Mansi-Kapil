@@ -54,10 +54,22 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.0.1"></script>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/4.1.0/introjs.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/4.1.0/intro.min.js"></script>
+
     <title>Slideshow</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+
+    <div id="customModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeModalBtn">&times;</span>
+        <p id="modalContent">Happy Birthday!</p>
+        <button id="thankYouBtn">Thank You</button>
+      </div>
+    </div>
+
     
     <div class="loading-screen" id="loadingScreen">
       <div class="loader"></div>
@@ -84,11 +96,11 @@
           id="navbarNavAltMarkup"
         >
           <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-            <a class="nav-link" href="#about">Our Story</a>
-            <a class="nav-link" href="#gallery">Gallery</a>
-            <a class="nav-link" href="#rsvp">RSVP</a>
-            <a class="nav-link" href="#contact">Contact</a>
+            <a class="nav-link active" aria-current="page" href="#" data-intro="Hola!, I'm Deepak, guiding you through the website tour. Currently, we're exploring the home section." data-step="1">Home</a>
+            <a class="nav-link" href="#about" data-intro="You're currently discovering the about section, dedicated to the story behind our website and the motivation that led to its creation." data-step="2">Our Story</a>
+            <a class="nav-link" href="#gallery" data-intro="Welcome to the gallery section, where you'll find an exciting collection of memorable moments captured throughout Mansi and Kapil's journey." data-step="3">Gallery</a>
+            <a class="nav-link" href="#rsvp" data-intro="Step into the RSVP section where you can confirm your attendance and join us in celebrating Mansi and Kapil's special day!" data-step="4">RSVP</a>
+            <a class="nav-link" href="#contact" data-intro="Welcome to the Contact section! Here, you can reach out to us directly to share your thoughts, ask questions, or simply say hello. We look forward to hearing from you!" data-step="5">Contact</a>
           </div>
         </div>
       </div>
