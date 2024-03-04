@@ -1,13 +1,44 @@
 // Function to hide the loading screen after 4 seconds
-setTimeout(function() {
-  var loadingScreen = document.getElementById('loadingScreen');
-  loadingScreen.style.display = 'none';
+setTimeout(function () {
+  var loadingScreen = document.getElementById("loadingScreen");
+  loadingScreen.style.display = "none";
+
+  // Start the website tour
+  startTour();
 }, 4000);
+
+// Function to start the website tour
+function startTour() {
+  introJs().start();
+}
+
+// Function to hide the loading screen after 4 seconds
+setTimeout(function () {
+  var loadingScreen = document.getElementById("loadingScreen");
+  loadingScreen.style.display = "none";
+
+  // Expand the navbar on mobile devices
+  expandNavbar();
+
+  // Start the website tour
+  startTour();
+}, 4000);
+
+// Function to expand the navbar on mobile devices
+function expandNavbar() {
+  var navbarToggler = document.querySelector(".navbar-toggler");
+  var navbarCollapse = document.querySelector(".navbar-collapse");
+  if (navbarToggler && navbarCollapse && window.innerWidth <= 768) {
+    if (!navbarCollapse.classList.contains("show")) {
+      navbarToggler.click();
+    }
+  }
+}
 
 // Welcome note typing effect
 const welcomeText1 = " Welcome to Mansi & Kapil's ";
 const welcomeText2 = "Special Journey";
-const typingTextElement = document.getElementById('typing-text');
+const typingTextElement = document.getElementById("typing-text");
 let index = 0;
 
 function typeWelcomeText() {
@@ -19,7 +50,8 @@ function typeWelcomeText() {
     index = 0; // Reset index to make the effect infinite
     typingTextElement.innerHTML = ""; // Clear existing text
   } else {
-    typingTextElement.innerHTML += welcomeText2[index - welcomeText1.length - 1]; // Adjust index
+    typingTextElement.innerHTML +=
+      welcomeText2[index - welcomeText1.length - 1]; // Adjust index
   }
 
   index++;
@@ -30,7 +62,7 @@ typeWelcomeText();
 
 // Function to trigger the confetti effect
 function triggerConfetti() {
-  var duration = 10 * 1000; // Duration of the confetti effect (in milliseconds)
+  var duration = 20 * 1000; // Duration of the confetti effect (in milliseconds)
   var animationEnd = Date.now() + duration;
   var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
 
@@ -38,7 +70,7 @@ function triggerConfetti() {
     return Math.random() * (max - min) + min;
   }
 
-  var interval = setInterval(function() {
+  var interval = setInterval(function () {
     var timeLeft = animationEnd - Date.now();
 
     if (timeLeft <= 0) {
@@ -50,23 +82,67 @@ function triggerConfetti() {
     confetti(
       Object.assign({}, defaults, {
         particleCount,
-        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
       })
     );
     confetti(
       Object.assign({}, defaults, {
         particleCount,
-        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
       })
     );
   }, 250);
 }
 
 // Add event listener to trigger confetti effect when the window has finished loading
-window.addEventListener('load', function() {
+window.addEventListener("load", function () {
   // Trigger the confetti effect
   triggerConfetti();
 });
+
+// Function to check if it's Kapil's or Mansi's birthday and show a popup
+function checkBirthday() {
+  const currentDate = new Date();
+  const kapilBirthday = new Date(currentDate.getFullYear(), 2, 7); // Kapil's birthday is on March 7
+  const mansiBirthday = new Date(currentDate.getFullYear(), 10, 2); // Mansi's birthday is on November 2
+
+  // Check if it's Kapil's birthday
+  if (
+    currentDate.getMonth() === kapilBirthday.getMonth() &&
+    currentDate.getDate() === kapilBirthday.getDate()
+  ) {
+    displayPopup("Happy Birthday, Kapil!");
+  }
+  // Check if it's Mansi's birthday
+  if (
+    currentDate.getMonth() === mansiBirthday.getMonth() &&
+    currentDate.getDate() === mansiBirthday.getDate()
+  ) {
+    displayPopup("Happy Birthday, Mansi!");
+  }
+}
+
+// Function to display the popup
+function displayPopup(message) {
+  const modal = document.getElementById("customModal");
+  const modalContent = document.getElementById("modalContent");
+  const closeModalBtn = document.getElementById("closeModalBtn");
+  const thankYouBtn = document.getElementById("thankYouBtn");
+
+  modal.style.display = "block";
+  modalContent.innerHTML = message;
+
+  closeModalBtn.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  thankYouBtn.onclick = function () {
+    modal.style.display = "none";
+  };
+}
+
+// Call the function to check for birthdays
+checkBirthday();
 
 let slideIndex = 1;
 showSlides(slideIndex);
